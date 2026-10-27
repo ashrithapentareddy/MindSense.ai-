@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background-color: #070710;
+  color: #e6e6f5;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+}
+
+/* Hide scrollbar for tab nav on small screens */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0b16;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a45;
+  border-radius: 8px;
+  border: 2px solid #0b0b16;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a60;
+}
+
+@layer components {
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(30, 30, 55, 0.65) 0%,
+      rgba(18, 18, 34, 0.75) 100%
+    );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(124, 77, 255, 0.14);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
+      0 8px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+
+  .glass-card-hover {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .glass-card-hover:hover {
+    border-color: rgba(155, 120, 255, 0.4);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.05) inset,
+      0 8px 32px -8px rgba(124, 77, 255, 0.25);
+  }
+
+  .neon-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(124, 77, 255, 0.4),
+      transparent
+    );
+  }
+}
+
+/* Native range/audio elements dark styling */
+audio {
+  filter: invert(0.92) hue-rotate(180deg) saturate(0.6);
+  border-radius: 8px;
+}
